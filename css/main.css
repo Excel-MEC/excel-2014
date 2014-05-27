@@ -1,0 +1,342 @@
+
+
+*
+{
+	cursor:default;
+}
+
+#st-trigger-effects button 
+{
+	border: none;
+	padding: 0.6em 1.2em;
+	background: #388a5a;
+	color: #fff;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	font-size: 1em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	position:fixed;
+	top:5px;
+	left:5px;
+	cursor: pointer;
+	margin: 3px 2px;
+	border-radius: 2px;
+}
+
+#st-trigger-effects button:hover 
+{
+	background: #2c774b;
+}
+
+a
+{
+	text-decoration:none;
+	color:#fff;
+	cursor:default;
+	
+}
+.normalLink a::before,
+.normalLink a::after {
+	display: inline-block;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+.normalLink a::before {
+
+	content: '[';
+	margin-right:.5%;
+	-webkit-transform: translateX(20px);
+	-moz-transform: translateX(20px);
+	transform: translateX(20px);
+}
+
+.normalLink a::after {
+
+	content: ']';
+	margin-left:.5%;
+	-webkit-transform: translateX(-20px);
+	-moz-transform: translateX(-20px);
+	transform: translateX(-20px);
+}
+
+.normalLink a:hover::before,
+.normalLink a:hover::after,
+.normalLink a:focus::before,
+.normalLink a:focus::after {
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	transform: translateX(0px);
+}
+
+@font-face
+{
+	font-family:asenine;
+	src: url(../fonts/ASENINE_.ttf);
+}
+body
+{
+	background:#0c9;
+	
+	font-size:120%;
+	font-weight:bold;
+	font-variant:small-caps;
+	letter-spacing:3px;
+	line-height:1.5;
+	font-family:asenine;
+	text-align:left;
+	color:#fff;
+	
+	margin:0 auto;
+	width:98%;
+	clear:both;
+	overflow-x:hidden;
+}
+
+
+#mainheader ul
+{
+	list-style:none;
+	margin:0 auto;
+	overflow:auto;
+}
+
+#mainheader ul li
+{
+	display:inline;
+		
+}
+
+#mainheader img
+{
+	float:left;
+	-webkit-transition: background 0.3s;
+	transition: background 0.3s;
+}
+
+#social img:hover
+{
+	background-color:#390;
+}
+
+#col_logo, #ieee_logo
+{
+	width:10%;
+	height:auto;
+
+	
+}
+#col_logo
+{
+	padding-top:1%;
+}
+#ieee_logo
+{
+	padding-top:3%;
+
+}
+
+#excel_logo
+{
+	width:40%;
+	height:auto;
+	
+}
+
+
+
+#social img
+{
+	padding: 3% .5%;
+	float:right;
+	width:4%;
+	height:auto;
+	
+}
+
+#navibar
+{
+	overflow:hidden;
+	float:left;
+}
+
+#main
+{
+
+	float:left;
+	background-color:#fff;
+	border-radius:5px;
+	
+	color:#096;
+	
+	margin-left:.4%;
+	margin-top:2px;
+	padding:3% 5%;
+	width:69%;
+	
+	
+}
+
+#top-side
+{
+	width:19%;
+	float:left;
+	margin-right:.2%;
+	margin-left:1%;
+	margin-top:2px;
+
+}
+
+#login_form
+{
+	background:#fff;
+	border-radius:5px;
+}
+#login_form a
+{
+	padding:2%;
+	padding-left:5%;
+	border-radius:5px;
+	color:#096;
+	display:block;
+	font-size:90%;
+	-webkit-transition: background 0.3s, color 0.3s;
+	transition: background 0.3s, color 0.3s;
+}
+
+#login_form a:hover
+{
+	background:#096;
+	color:#fff;
+}
+
+#sponsor
+{
+	width:20%;
+	float:left;
+	
+	margin-top:2px;
+	border-radius:5px;
+}
+
+#sponsor img
+{
+	padding:5%;
+	width:95%;
+	border-radius:5px;
+}
+
+#mainfooter
+{
+		margin-top:2%;
+	float:left;
+	width:99%;
+	overflow:hidden;
+	background-color:#390;
+	border-radius:5px 5px 0px 0px;
+	padding-left:5px;
+	font-size:70%;
+}
+#mainfooter a
+{
+	display:inline;
+}
+	
+@media 	only screen and (min-width:150px) and (max-width:750px)
+{
+	
+	body
+	{
+	width:98%;
+	font-size:90%;
+	}
+	
+	
+	#excel_logo
+	{
+		float:none;
+		width:98%;
+		height:auto;
+		clear:both;
+		margin-left:-20px;
+	}
+	#social img
+	{
+		position:absolute;
+		top:3px;
+	}
+	#soc1
+	{
+		right:31%;
+	}
+	#soc2
+	{
+		right:21%;
+	}
+	#soc3
+	{
+		right:11%;
+	}
+	#soc4
+	{
+		right:1%;
+	}
+	
+	#main
+	{
+		width:89%;
+		clear:both;
+		
+	}
+	#top-side
+	{
+		width:99%;
+		margin-left:.5%;
+		margin-top:2%;
+		
+	
+	}
+	#login_form a
+	{
+		padding:0px;
+		padding-left:3%;
+		font-size:80%;
+		
+	}
+	
+	#sponsor
+	{
+		width:100%;
+		clear:both;
+		
+	}
+	#sponsor img
+	{
+		padding:0;
+		padding-left:.5%;
+		margin-top:1.5%;
+		width:99%;
+		border-radius:5px;
+	}
+	#mainfooter
+	{
+		width:98%;
+	}
+	#mainfooter a
+	{
+		display:block;
+		text-align:center;
+	}
+}
+
+@media 	only screen and (min-width:750px) and (max-width:880px)
+{
+  #mainfooter a
+	{
+		display:block;
+		text-align:center;
+	}
+}
