@@ -1,174 +1,1241 @@
-
-.st-content,
-.st-content-inner {
-	position: relative;
+*, *:after, *::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-.st-container {
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon/icomoon.eot');
+	src:url('../fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon/icomoon.woff') format('woff'),
+		url('../fonts/icomoon/icomoon.svg#icomoon') format('svg');
+}
+
+/* General styles for all types of buttons */
+.progress-button {
 	position: relative;
+	display: inline-block;
+	padding: 0 60px;
+	outline: none;
+	border: none;
+	background: #35d1a4;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: .8em;
+	line-height: 1.5;
+	font-weight: bold;
+}
+
+.progress-button[disabled],
+.progress-button[disabled].state-loading {
+	cursor: default;
+}
+
+.progress-button .content {
+	position: relative;
+	display: block;
+}
+
+.progress-button .content::before,
+.progress-button .content::after  {
+	position: absolute;
+	right: 20px;
+	color: #FFF;
+	font-family: "icomoon";
+	opacity: 0;
+	-webkit-transition: opacity 0.3s 0.3s;
+	transition: opacity 0.3s 0.3s;
+}
+
+.progress-button .content::before {
+	content: "\e600"; /* Checkmark for success */
+}
+
+.progress-button .content::after {
+	content: "\e601"; /* Cross for error */
+}
+
+.progress-button.state-success .content::before,
+.progress-button.state-error .content::after {
+	opacity: 1;
+}
+
+.notransition {
+	-webkit-transition: none !important;
+	transition: none !important;
+}
+
+.progress-button .progress {
+	background: #148544;
+}
+
+.progress-button .progress-inner {
+	position: absolute;
+	left: 0;
+	background: #0e7138;
+}
+
+.progress-button[data-horizontal] .progress-inner {
+	top: 0;
+	width: 0;
+	height: 100%;
+	-webkit-transition: width 0.3s, opacity 0.3s;
+	transition: width 0.3s, opacity 0.3s;
+}
+
+.progress-button[data-vertical] .progress-inner {
+	bottom: 0;
+	width: 100%;
+	height: 0;
+	-webkit-transition: height 0.3s, opacity 0.3s;
+	transition: height 0.3s, opacity 0.3s;
+}
+
+/* Necessary 3d styles for buttons with perspective */
+
+.progress-button[data-perspective] {
+	position: relative;
+	display: inline-block;
+	padding: 0;
+	background: transparent;
+	-webkit-perspective: 900px;
+	perspective: 900px;
+}
+
+.progress-button[data-perspective] .content {
+	padding: 0 60px;
+	background: #1d9650;
+}
+
+.progress-button[data-perspective] .progress-wrap {
+	display: block;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.progress-button[data-perspective] .content,
+.progress-button[data-perspective] .progress {
+	outline: 1px solid rgba(0,0,0,0); /* Smoothen jagged edges in FF */
+}
+
+/* Individual styles */
+/* Choose the effect(s) you want, delete the rest */
+
+/* Fill horizontal */
+/* ====================== */
+
+.progress-button[data-style="fill"][data-horizontal] {
 	overflow: hidden;
 }
 
-.st-pusher {
-	position: relative;
-	left: 0;
-	z-index: 99;
-	height: 100%;
-	-webkit-transition: -webkit-transform 0.5s;
-	-moz-transition: -moz-transform 0.5s;
-	transition: transform 0.5s;
+.progress-button[data-style="fill"][data-horizontal] .content {
+	z-index: 10;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
 }
 
-.st-pusher::after {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 0;
-	height: 0;
-	background: rgba(0,0,0,0.2);
-	content: '';
+.progress-button[data-style="fill"][data-horizontal] .content::before,
+.progress-button[data-style="fill"][data-horizontal] .content::after {
+	top: 100%;
+	right: auto;
+	left: 50%;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.progress-button[data-style="fill"][data-horizontal].state-success .content,
+.progress-button[data-style="fill"][data-horizontal].state-error .content {
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+/* Fill vertical */
+/* ====================== */
+
+.progress-button[data-style="fill"][data-vertical] {
+	overflow: hidden;
+}
+
+.progress-button[data-style="fill"][data-vertical] .content {
+	z-index: 10;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.progress-button[data-style="fill"][data-vertical] .content::before,
+.progress-button[data-style="fill"][data-vertical] .content::after {
+	top: 100%;
+	right: auto;
+	left: 50%;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.progress-button[data-style="fill"][data-vertical].state-success .content,
+.progress-button[data-style="fill"][data-vertical].state-error .content {
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+/* Shrink horizontal */
+/* ====================== */
+
+.progress-button[data-style="shrink"] { /* common for horizontal and vertical */
+	overflow: hidden;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+}
+
+.progress-button[data-style="shrink"][data-horizontal] .content {
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.progress-button[data-style="shrink"][data-horizontal] .content::before,
+.progress-button[data-style="shrink"][data-horizontal] .content::after {
+	top: 100%;
+	right: auto;
+	left: 50%;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.progress-button[data-style="shrink"][data-horizontal].state-loading {
+	-webkit-transform: scaleY(0.3);
+	transform: scaleY(0.3);
+}
+
+.progress-button[data-style="shrink"][data-horizontal].state-loading .content {
 	opacity: 0;
-	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-	-moz-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
 }
 
-
-.st-menu-open .st-pusher::after {
-	width: 100%;
-	height: 100%;
-	opacity: 1;
-	-webkit-transition: opacity 0.5s;
-	-moz-transition: opacity 0.5s;
-	transition: opacity 0.5s;
+.progress-button[data-style="shrink"][data-horizontal].state-success .content,
+.progress-button[data-style="shrink"][data-horizontal].state-error .content {
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
 }
 
-.st-menu {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 100;
-	visibility: hidden;
-	width: 300px;
-	height: 100%;
-	-webkit-transition: all 0.5s;
-	-moz-transition: all 0.5s;
-	transition: all 0.5s;
+/* Shrink vertical */
+/* ====================== */
+
+.progress-button[data-style="shrink"][data-vertical] .content {
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
 }
 
-.st-menu::after {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0,0,0,0.2);
-	content: '';
-	opacity: 1;
-	-webkit-transition: opacity 0.5s;
-	-moz-transition: opacity 0.5s;
-	transition: opacity 0.5s;
+.progress-button[data-style="shrink"][data-vertical] .content::before,
+.progress-button[data-style="shrink"][data-vertical] .content::after {
+	top: 100%;
+	right: auto;
+	left: 50%;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
 }
 
-.st-menu-open .st-menu::after {
-	width: 0;
-	height: 0;
+.progress-button[data-style="shrink"][data-vertical].state-loading {
+	-webkit-transform: scaleX(0.1);
+	transform: scaleX(0.1);
+}
+
+.progress-button[data-style="shrink"][data-vertical].state-loading .content {
 	opacity: 0;
-	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-	-moz-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
 }
 
-/* content style */
-
-.st-menu ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+.progress-button[data-style="shrink"][data-vertical].state-success .content,
+.progress-button[data-style="shrink"][data-vertical].state-error .content {
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
 }
 
-.st-menu h2 {
-	margin: 0;
-	padding: 1em;
-	text-shadow: 0 0 1px rgba(0,0,0,0.1);
-	font-weight: 300;
-	font-size: 2em;
+/* Rotate bottom 3d */
+/* ====================== */
+
+.progress-button[data-style="rotate-angle-bottom"] .progress {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	box-shadow: 0 -1px 0 #148544; /* fix the blurriness that causes a gap */
+	-webkit-transform: rotateX(-90deg);
+	transform: rotateX(-90deg);
+	-webkit-transform-origin: 50% 0%;
+	transform-origin: 50% 0%;
 }
 
-.st-menu ul li a {
-	display: block;
-	padding: 1em 1em 1em 1.2em;
-	outline: none;
-	box-shadow: inset 0 -1px rgba(0,0,0,0.2);
-	color: #f3efe0;
-	text-transform: uppercase;
-	text-shadow: 0 0 1px rgba(255,255,255,0.1);
-	letter-spacing: 1px;
-	font-weight: 400;
-	-webkit-transition: background 0.3s, box-shadow 0.3s;
-	-moz-transition: background 0.3s, box-shadow 0.3s;
-	transition: background 0.3s, box-shadow 0.3s;
+.progress-button[data-style="rotate-angle-bottom"].state-loading .progress-wrap {
+	-webkit-transform: rotateX(45deg);
+	transform: rotateX(45deg);
 }
 
-.st-menu ul li:first-child a {
-	box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);
+/* Rotate top 3d */
+/* ====================== */
+
+.progress-button[data-style="rotate-angle-top"] .progress {
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	box-shadow: 0 1px 0 #148544; /* fix the blurriness that causes a gap */
+	-webkit-transform: rotateX(90deg);
+	transform: rotateX(90deg);
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
 }
 
-.st-menu ul li a:hover {
-	background: rgba(0,0,0,0.2);
-	box-shadow: inset 0 -1px rgba(0,0,0,0);
-	color: #fff;
+.progress-button[data-style="rotate-angle-top"].state-loading .progress-wrap {
+	-webkit-transform: rotateX(-45deg);
+	transform: rotateX(-45deg);
 }
 
-.st-effect-6.st-container {
-	-webkit-perspective: 1500px;
-	-moz-perspective: 1500px;
-	perspective: 1500px;
+/* Rotate left 3d */
+/* ====================== */
+
+.progress-button[data-style="rotate-angle-left"] .progress {
+	position: absolute;
+	top: 0;
+	right: 100%;
+	width: 20px;
+	height: 100%;
+	box-shadow: 1px 0 0 #148544; /* fix the blurriness that causes a gap */
+	-webkit-transform: rotateY(-90deg);
+	transform: rotateY(-90deg);
+	-webkit-transform-origin: 100% 50%;
+	transform-origin: 100% 50%;
 }
 
-.st-effect-6 .st-pusher {
+.progress-button[data-style="rotate-angle-left"].state-loading .progress-wrap {
+	-webkit-transform: rotateY(45deg);
+	transform: rotateY(45deg);
+}
+
+/* Rotate right 3d */
+/* ====================== */
+
+.progress-button[data-style="rotate-angle-right"] .progress {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	width: 20px;
+	height: 100%;
+	box-shadow: -1px 0 0 #148544; /* fix the blurriness that causes a gap */
+	-webkit-transform: rotateY(90deg);
+	transform: rotateY(90deg);
 	-webkit-transform-origin: 0% 50%;
-	-moz-transform-origin: 0% 50%;
 	transform-origin: 0% 50%;
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	transform-style: preserve-3d;
 }
 
-.st-effect-6.st-menu-open .st-pusher {
-	-webkit-transform: translate3d(300px, 0, 0) rotateY(-15deg);
-	-moz-transform: translate3d(300px, 0, 0) rotateY(-15deg);
-	transform: translate3d(300px, 0, 0) rotateY(-15deg);
+.progress-button[data-style="rotate-angle-right"].state-loading .progress-wrap {
+	-webkit-transform: rotateY(-45deg);
+	transform: rotateY(-45deg);
 }
 
-.st-effect-6.st-menu {
-	-webkit-transform: translate3d(-100%, 0, 0);
-	-moz-transform: translate3d(-100%, 0, 0);
-	transform: translate3d(-100%, 0, 0);
+/* Rotate side down 3d */
+/* ====================== */
+
+.progress-button[data-style="rotate-side-down"] .progress {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	-webkit-transform: rotateX(-90deg);
+	transform: rotateX(-90deg);
+	-webkit-transform-origin: 50% 0%;
+	transform-origin: 50% 0%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.progress-button[data-style="rotate-side-down"].state-loading .progress-wrap {
+	-webkit-transform: rotateX(90deg) translateZ(10px);
+	transform: rotateX(90deg) translateZ(10px);
+}
+
+/* Rotate side up 3d */
+/* ====================== */
+
+.progress-button[data-style="rotate-side-up"] .progress {
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	-webkit-transform: rotateX(90deg);
+	transform: rotateX(90deg);
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.progress-button[data-style="rotate-side-up"].state-loading .progress-wrap {
+	-webkit-transform: rotateX(-90deg) translateZ(10px);
+	transform: rotateX(-90deg) translateZ(10px);
+}
+
+/* Rotate side left 3d */
+/* ====================== */
+
+.progress-button[data-style="rotate-side-left"] .progress-wrap {
+	-webkit-transform-origin: 0 50%;
+	transform-origin: 0 50%;
+}
+
+.progress-button[data-style="rotate-side-left"] .progress {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 100%;
+	-webkit-transform: rotateY(90deg);
+	transform: rotateY(90deg);
+	-webkit-transform-origin: 0 50%;
+	transform-origin: 0 50%;
+}
+
+.progress-button[data-style="rotate-side-left"].state-loading .progress-wrap {
+	-webkit-transform: translateX(50%) rotateY(90deg) translateZ(10px);
+	transform: translateX(50%) rotateY(90deg) translateZ(10px);
+}
+
+/* Rotate side right 3d */
+/* ====================== */
+
+.progress-button[data-style="rotate-side-right"] .progress-wrap {
+	-webkit-transform-origin: 100% 50%;
+	transform-origin: 100% 50%;
+}
+
+.progress-button[data-style="rotate-side-right"] .progress {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	width: 20px;
+	height: 100%;
+	-webkit-transform: rotateY(90deg);
+	transform: rotateY(90deg);
+	-webkit-transform-origin: 0 50%;
+	transform-origin: 0 50%;
+}
+
+.progress-button[data-style="rotate-side-right"].state-loading .progress-wrap {
+	-webkit-transform: translateX(-50%) rotateY(-90deg) translateZ(10px);
+	transform: translateX(-50%) rotateY(-90deg) translateZ(10px);
+}
+
+/* Rotate back 3d */
+/* ====================== */
+
+.progress-button[data-style="rotate-back"] .progress-wrap {
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.progress-button[data-style="rotate-back"] .content {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.progress-button[data-style="rotate-back"] .progress {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transform: rotateX(-180deg);
+	transform: rotateX(-180deg);
+	-webkit-transform-origin: 50% 0%;
+	transform-origin: 50% 0%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.progress-button[data-style="rotate-back"].state-loading .progress-wrap {
+	-webkit-transform: rotateX(180deg) scaleX(0.6) scaleY(0.3);
+	transform: rotateX(180deg) scaleX(0.6) scaleY(0.3);
+}
+
+/* flip open 3d */
+/* ====================== */
+
+.progress-button[data-style="flip-open"] .content {
+	z-index: 10;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+	-webkit-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+}
+
+.progress-button[data-style="flip-open"] .progress {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.progress-button[data-style="flip-open"].state-loading .content {
+	-webkit-transform: rotateX(45deg);
+	transform: rotateX(45deg);
+}
+
+/* slide down */
+/* ====================== */
+
+.progress-button[data-style="slide-down"] {
+	padding: 0;
+	overflow: visible;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.progress-button[data-style="slide-down"] .content {
+	z-index: 10;
+	padding: 0 60px;
+	background: #1d9650;
+}
+
+.progress-button[data-style="slide-down"] .progress {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+}
+
+.progress-button[data-style="slide-down"].state-loading .progress {
+	-webkit-transform: translateY(10px);
+	transform: translateY(10px);
+}
+
+/* move-up */
+/* ====================== */
+
+.progress-button[data-style="move-up"] {
+	padding: 0;
+	overflow: visible;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.progress-button[data-style="move-up"] .content {
+	z-index: 10;
+	padding: 0 60px;
+	background: #1d9650;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+}
+
+.progress-button[data-style="move-up"] .progress {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.progress-button[data-style="move-up"].state-loading .content {
+	-webkit-transform: translateY(-10px);
+	transform: translateY(-10px);
+}
+
+/* top-line */
+/* ====================== */
+
+.progress-button[data-style="top-line"] .progress-inner {
+	height: 3px;
+}
+
+.progress-button[data-style="top-line"] .content::before,
+.progress-button[data-style="top-line"] .content::after {
+	right: auto;
+	left: 100%;
+	margin-left: 25px;
+}
+
+/* lateral-lines */
+/* ====================== */
+
+.progress-button[data-style="lateral-lines"] .progress-inner {
+	width: 100%;
+	border-right: 3px solid #0e7138;
+	border-left: 3px solid #0e7138;
+	background: transparent;
+}
+
+.progress-button[data-style="lateral-lines"] .content::before,
+.progress-button[data-style="lateral-lines"] .content::after {
+	right: auto;
+	left: 100%;
+	margin-left: 25px;
+}
+
+.fc-slideshow {
+	position: relative;
+	width: 600px;
+	height: 600px;
+	box-shadow: inset 0 0 3px #dd583a, 0 0 0 10px #dd583a;
+	border-radius: 50%;
+	margin: 11% auto;
+	-webkit-perspective: 1200px;
+	-moz-perspective: 1200px;
+	perspective: 1200px;
+}
+
+.fc-slideshow nav {
+	top: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 10000;
+}
+
+.fc-slideshow nav > div {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	width: 50%;
+}
+
+.fc-slideshow nav .fc-left {
+	left: 0;
+}
+
+.fc-slideshow nav .fc-right {
+	right: 0;
+}
+
+.fc-slideshow nav > div span {
+	height: 33%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	cursor: pointer;
+}
+
+.fc-slideshow nav > div span:first-child {
+	top: 0;
+}
+
+.fc-slideshow nav > div span:nth-child(2) {
+	top: 33%;
+}
+
+.fc-slideshow nav > div span:nth-child(3) {
+	top: 66%;
+}
+
+.fc-slideshow nav i,
+.no-csstransforms3d .fc-slideshow nav > div span {
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	top: 50%;
+	margin-top: -20px;
+	pointer-events: none;
+	opacity: 0;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: all 0.2s ease;
+	-moz-backface-visibility: hidden;
+	-moz-transition: all 0.2s ease;
+	backface-visibility: hidden;
+	transition: all 0.2s ease;
+}
+
+/* Some fallbacks */
+.no-csstransforms3d .fc-slideshow nav > div span {
+	z-index: 1000;
+	width: 40px;
+	background: rgba(0,0,0,0);
+}
+
+.no-csstransforms3d .fc-slideshow nav .fc-left span {
+	left: -80px;
+}
+
+.no-csstransforms3d .fc-slideshow nav .fc-right span {
+	right: -80px;
+	left: auto;
+}
+
+.no-csstransforms3d .fc-slideshow nav i {
+	width: 40px;
+	cursor: pointer;
+}
+
+.fc-slideshow nav .fc-left i {
 	-webkit-transform-origin: 100% 50%;
 	-moz-transform-origin: 100% 50%;
 	transform-origin: 100% 50%;
+	text-align: left;
+}
+
+.fc-slideshow nav .fc-right i {
+	-webkit-transform-origin: 0% 50%;
+	-moz-transform-origin: 0% 50%;
+	transform-origin: 0% 50%;
+	text-align: right;
+}
+
+.fc-slideshow nav i.icon-arrow-left {
+	left: 0;
+}
+
+.no-csstransforms3d .fc-slideshow nav i.icon-arrow-left {
+	left: -100px;
+}
+
+.fc-slideshow nav i.icon-arrow-right {
+	right: 0;
+}
+
+.no-csstransforms3d .fc-slideshow nav i.icon-arrow-right {
+	right: -60px;
+}
+
+.icon-arrow-left:before, 
+.icon-arrow-right:before {
+	font-family: 'entypo';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	background: #cc2724;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	display: inline-block;
+	margin: 0 20px;
+	border-radius: 20% 10% 50% 5% / 25% 10% 30% 75%;
+	-webkit-font-smoothing: antialiased;
+}
+
+.icon-arrow-left:before {
+	content: "\e002";
+}
+
+.icon-arrow-right:before {
+	content: "\e003";
+}
+
+.csstransforms3d .fc-slideshow nav > div span:hover ~ i,
+.no-csstransforms3d .fc-slideshow nav i,
+.no-csstransforms3d .fc-slideshow nav > div span {
+	opacity: 1;
+}
+
+.csstransforms3d .fc-slideshow nav > div span:nth-child(2):hover ~ i{
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
+
+.csstransforms3d .fc-slideshow nav > .fc-left span:first-child:hover ~ i,
+.csstransforms3d .fc-slideshow nav > .fc-right span:nth-child(3):hover ~ i {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.csstransforms3d .fc-slideshow nav > .fc-right span:first-child:hover ~ i,
+.csstransforms3d .fc-slideshow nav > .fc-left span:nth-child(3):hover ~ i {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+ul.fc-slides {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.fc-slides li {
+	display: none;
+}
+
+.no-js ul.fc-slides li {
+	display: block;
+}
+
+.fc-flip {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 }
 
-.st-effect-6.st-menu-open .st-effect-6.st-menu {
-	visibility: visible;
-	-webkit-transition: -webkit-transform 0.5s;
-	-moz-transition: -moz-transform 0.5s;
-	transition: transform 0.5s;
-	-webkit-transform: translate3d(-100%, 0, 0) rotateY(15deg);
-	-moz-transform: translate3d(-100%, 0, 0) rotateY(15deg);
-	transform: translate3d(-100%, 0, 0) rotateY(15deg);
+.fc-flip div {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	border-radius: 50%;
+	top: 0;
+	left: 0;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
-.st-effect-6.st-menu::after {
+.fc-flip .fc-back {
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+
+.fc-slideshow img {
+	height:600px;
+	border-radius: 50%;
+	width: 100%;
+    height: 100%;
+}
+
+.fc-slideshow h3 {
+	position: absolute;
+	color: #fff;
+	top: 50%;
+	margin-top: 30px;
+	line-height: 50px;
+	height: 50px;
+	left: 80px;
+	right: 80px;
+	background: #ff514c;
+	font-size: 22px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-align: center;
+	border-radius: 20% 10% 50% 5% / 25% 10% 30% 75%;
+}
+
+.fc-overlay-light,
+.fc-overlay-dark {
+	opacity: 0;
+}
+
+.fc-overlay-light {
+	background: rgba(255,255,255,1);
+}
+
+.fc-overlay-dark {
+	background: rgba(0,0,0,1);
+}
+
+/* No JS fallback */
+
+.no-js .fc-slideshow {
+	height: auto;
+	box-shadow: none;
+}
+
+.no-js .fc-slideshow h3 {
+	position: relative;
+	width: auto;
+	height: auto;
+	left: auto;
+	right: auto;
+	top: auto;
+	margin: 5px;
+}
+
+#main{top:50%;}
+
+
+/* General styles for the modal */
+
+/* 
+Styles for the html/body for special modal where we want 3d effects
+Note that we need a container wrapping all content on the page for the 
+perspective effects (not including the modals and the overlay).
+*/
+.md-perspective,
+.md-perspective body {
+	height: 100%;
+	overflow: hidden;
+}
+
+.md-perspective body  {
+	background: #222;
+	-webkit-perspective: 600px;
+	-moz-perspective: 600px;
+	perspective: 600px;
+}
+
+
+.md-modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 70%;
+	
+	/*height: auto;*/
+	z-index: 2000;
+	visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.md-show {
+	visibility: visible;
+}
+
+.md-overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	opacity: 0;
+	background: rgba(143,27,15,0.8);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.md-show ~ .md-overlay {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* Content styles */
+.md-content {
+	color: #fff;
+	background: rgba(22, 143, 176, 1);
+	position: relative;
+	border-radius: 3px;
+	margin: 0 auto;
+}
+
+.md-content h3 {
+	margin: 0;
+	padding: 0.4em;
+	text-align: center;
+	font-size: 2.4em;
+	font-weight: 300;
+	opacity: 0.8;
+	background: rgba(0,0,0,0.1);
+	border-radius: 3px 3px 0 0;
+}
+
+.md-content > div {
+	padding: 15px 40px 30px;
+	margin: 0;
+	font-weight: 300;
+	font-size: 1.15em;
+}
+
+.md-content > div p {
+	margin: 0;
+	padding: 10px 0;
+}
+
+.md-content > div ul {
+	margin: 0;
+	padding: 0 0 30px 20px;
+}
+
+.md-content > div ul li {
+	padding: 5px 0;
+}
+
+.md-content button {
+	display: block;
+	margin: 0 auto;
+	font-size: 0.8em;
+}
+
+
+
+/* Effect 8: 3D flip horizontal */
+.md-effect-8.md-modal {
+	-webkit-perspective: 1300px;
+	-moz-perspective: 1300px;
+	perspective: 1300px;
+}
+
+.md-effect-8 .md-content {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: rotateY(-70deg);
+	-moz-transform: rotateY(-70deg);
+	-ms-transform: rotateY(-70deg);
+	transform: rotateY(-70deg);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	opacity: 0;
+}
+
+.md-show.md-effect-8 .md-content {
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+	opacity: 1;
+}
+
+
+
+#ban1 .ch-item {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	position: relative;
+	cursor: default;
+	box-shadow: 
+		inset 0 0 0 6px #d9605b;
+		
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+
+#ban1 .ch-img-1 { 
+	background-position: center center;
+	background-size: 100%;
+	background-image: url(../tedx.png);
+	background-repeat: no-repeat;
+}
+
+#ban1 .ch-img-2 { 
+	background-position: center center;
+	background-size: 100%;
+	background-image: url(../issue.png);
+	background-repeat: no-repeat;
+}
+
+#ban1 .ch-img-3 { 
+	background-position: center center;
+	background-size: 100%;
+	background-image: url(../sem.png);
+	background-repeat: no-repeat;
+}
+
+#ban1 .ch-img-4 { 
+	background-position: center center;
+	background-size: 100%;
+	background-image: url(../work.png);
+	background-repeat: no-repeat;
+}
+#ban1 .ch-img-5 { 
+	background-position: center center;
+	background-size: 100%;
+	background-image: url(../exhi.png);
+	background-repeat: no-repeat;
+}
+
+#ban1 .ch-info {
+	position: absolute;
+	background: #d9605b;
+	width: inherit;
+	height: inherit;
+	border-radius: 50%;
+	opacity: 0;
+	
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-o-transform: scale(0);
+	-ms-transform: scale(0);
+	transform: scale(0);
+	
+	-webkit-backface-visibility: hidden;
+	background-position: center center;
+	background-size: 100%;
+
+}
+
+#ban1 .ch-info h3 {
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 22px;
+	margin: 20% 30px;
+	padding: 45px 0 0 0;
+	height: 140px;
+	font-family: 'Open Sans', Arial, sans-serif;
+	text-shadow: 
+		0 0 1px #fff, 
+		0 1px 2px rgba(0,0,0,0.3);
+		vertical-align: middle;
+		
+}
+
+#ban1 .ch-info p {
+	color: #fff;
+	padding: 10px 5px;
+	font-style: italic;
+	margin: 0 30px;
+	font-size: 12px;
+	border-top: 1px solid rgba(255,255,255,0.5);
+	opacity: 0;
+	-webkit-transition: all 1s ease-in-out 0.4s;
+	-moz-transition: all 1s ease-in-out 0.4s;
+	-o-transition: all 1s ease-in-out 0.4s;
+	-ms-transition: all 1s ease-in-out 0.4s;
+	transition: all 1s ease-in-out 0.4s;
+}
+
+#ban1 .ch-info p a {
+	display: block;
+	color: #fff;
+	color: rgba(255,255,255,0.7);
+	font-style: normal;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 9px;
+	letter-spacing: 1px;
+	padding-top: 4px;
+	font-family: 'Open Sans', Arial, sans-serif;
+}
+
+#ban1 .ch-info p a:hover {
+	color: #fff222;
+	color: rgba(255,242,34, 0.8);
+}
+
+#ban1 .ch-item:hover {
+	box-shadow: 
+		inset 0 0 0 1px rgba(255,255,255,0.1),
+		0 1px 2px rgba(0,0,0,0.1);
+}
+#ban1 .ch-item:hover .ch-info {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
+
+#ban1 .ch-item:hover .ch-info p {
+	opacity: 1;
+}
+.container {
 	display: none;
 }
 
-/* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
-.no-csstransforms3d .st-pusher,
-.no-js .st-pusher {
-	padding-left: 300px;
+.container.show {
+	display: block;
+}
+
+.pageload-overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+}
+
+.pageload-overlay.show {
+	visibility: visible;
+}
+
+.pageload-overlay svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+}
+
+.pageload-overlay svg path {
+	fill: #fff;
+}
+
+.pageload-overlay::after,
+.pageload-overlay::before {
+	content: '';
+	position: fixed;
+	width: 20px;
+	height: 20px;
+	top: 50%;
+	left: 50%;
+	margin: -10px 0 0 -10px;
+	border-radius: 50%;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 1000;
+	-webkit-transition: opacity 0.15s, visibility 0s 0.15s;
+	transition: opacity 0.15s, visibility 0s 0.15s;
+}
+
+.pageload-overlay::after {
+	background: #0A4148;
+	-webkit-transform: translateX(-20px);
+	transform: translateX(-20px);
+	-webkit-animation: moveRight 0.6s linear infinite alternate;
+	animation: moveRight 0.6s linear infinite alternate;
+}
+
+.pageload-overlay::before {
+	background: #3E9F8F;
+	-webkit-transform: translateX(20px);
+	transform: translateX(20px);
+	-webkit-animation: moveLeft 0.6s linear infinite alternate;
+	animation: moveLeft 0.6s linear infinite alternate;
+}
+
+@-webkit-keyframes moveRight {
+	to { -webkit-transform: translateX(20px); }
+}
+
+@keyframes moveRight {
+	to { transform: translateX(20px); }
+}
+
+@-webkit-keyframes moveLeft {
+	to { -webkit-transform: translateX(-20px); }
+}
+
+@keyframes moveLeft {
+	to { transform: translateX(-20px); }
+}
+
+.pageload-loading.pageload-overlay::after,
+.pageload-loading.pageload-overlay::before {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
 }

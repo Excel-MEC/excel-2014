@@ -1,0 +1,701 @@
+@font-face
+{
+font-family: code_bold;
+src: url(font.otf);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    display: none;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
+#ban0
+{
+	position:fixed;
+	top:0%;
+	left:0%;
+	width:81%;
+	height:100%;
+	background:#F26241;
+	z-index:0;
+	overflow: -moz-scrollbars-none!important;
+	box-shadow:0 2px 3px #000;
+}
+
+
+#ban1
+{
+	position:fixed;
+	top:0%;
+	left:4%;
+	width:81%;
+	height:100%;
+	background:#FA726C;
+	z-index:-1;
+	overflow: -moz-scrollbars-none!important;
+	box-shadow:0 2px 3px #000;
+}
+
+#ban2
+{
+	position:fixed;
+	top:0%;
+	left:7%;
+	width:81%;
+	height:100%;
+	background:#FFD794;
+	z-index:-2;
+	overflow: -moz-scrollbars-none!important;
+	box-shadow:0 2px 3px #000;
+}
+
+#ban3
+{
+	position:fixed;
+	top:0%;
+	left:10%;
+	width:81%;
+	height:100%;
+	background:#BAD174;
+	z-index:-3;
+	overflow: -moz-scrollbars-none!important;
+	box-shadow:0 2px 3px #000;
+}
+#ban4
+{
+	position:fixed;
+	top:0%;
+	left:13%;
+	width:81%;
+	height:100%;
+	background:#3BA686;
+	z-index:-4;
+	overflow: -moz-scrollbars-none!important;
+	box-shadow:0 2px 3px #000;
+}
+#ban5
+{
+	position:fixed;
+	top:0%;
+	left:16%;
+	width:81%;
+	height:100%;
+	background:#5F6F8C;
+	z-index:-5;
+	overflow: -moz-scrollbars-none!important;
+	box-shadow:0 2px 3px #000;
+}
+#ban6
+{
+	position:fixed;
+	top:0%;
+	left:18%;
+	width:82%;
+	height:100%;
+	/*background:#fff;*/
+	z-index:-6;
+	/*background-image:url('http://html5up.net/uploads/demos/tessellate/images/header.jpg');	*/
+	background-size: auto 100%;
+	background-color:#061922;
+	overflow-y: scroll;
+}
+
+#home_cont
+{
+	overflow-y:scroll;
+	height:100%;
+}
+
+
+.arw{
+position: absolute;
+left:109.8%;
+height:6%;
+top:4%;
+z-index: 200;
+
+}
+
+header{
+	position:fixed;
+	height:50px;
+	width: 100%;
+	top:0px;
+	left:0px;
+	/*background-color: #2C3E50;*/
+	z-index: 1;
+}
+
+#talk{
+	position: absolute;
+	top:84%;
+	left:96.5%;
+	width:3%;
+}
+
+#pro{
+	position: absolute;
+	top:85%;
+	left:96.5%;
+	width:3%;
+}
+
+#com{
+	position: absolute;
+	top:85%;
+	left:96%;
+	width:4%;
+}
+
+#ini{
+	position: absolute;
+	top:84.2%;
+	left:96.5%;
+	width:3%;
+}
+
+#prosh{
+	position: absolute;
+	top:83.2%;
+	left:96%;
+	width:4.5%;
+}
+
+#gal{
+	position: absolute;
+	top:85%;
+	left:96.5%;
+	width:3%;
+}
+
+#com_cont
+{
+	position:absolute;
+	height:100%;
+	width:96.3%;
+	overflow-y:auto;
+}
+.com_card
+{
+	position:relative;
+	height:13.2%;
+	width:42%;
+	margin:2.5% 0 0 2.5%;
+	padding:1.5rem;
+  	box-shadow:0 1px 2px #aaa;
+  	background:white;
+ 	border-radius:3px;
+	float:left;
+	
+}
+
+.drums
+{
+	position:absolute;
+	width:70%;
+	top:30%;
+	left:10%;
+	
+}
+
+
+#coll_eye{
+    position: absolute;
+	background-image:url('college.png') ;
+	background-repeat:no-repeat;
+	background-position: center bottom;
+	width:100%;
+	height:100%;
+	background-size: 100% auto;
+	z-index: 121;
+	overflow:hidden;
+	
+}
+
+#coll_build
+{
+	position: absolute;
+	background-image:url('college.png') ;
+	background-repeat:no-repeat;
+	background-position: center bottom;
+	width:100%;
+	height:100%;
+	background-size: 100% auto;
+	z-index: 121;
+	overflow:hidden;
+
+}
+#sky_dark{
+	
+	position: absolute;
+	/*background-image:url('sky_dark.png') ;*/
+	/*background-repeat:no-repeat;*/
+	/*background-position: center bottom;*/
+	-webkit-transform-origin:50% 50%;
+	width:75%;
+	
+	left:12.5%;
+	background-size: 100% auto  ;
+	z-index: 98;
+	-webkit-animation-name: spin;
+    -webkit-animation-duration: 10000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 10000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 10000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 10000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+	
+
+	
+
+}
+#sky_dark_2{
+	position: absolute;
+	/*background-image:url('sky_dark.png') ;*/
+	/*background-repeat:no-repeat;*/
+	/*background-position: center bottom;*/
+	-webkit-transform-origin:50% 50%;
+	width:88%;
+	
+	left:6%;
+	background-size: 100% auto  ;
+	z-index: 98;
+	-webkit-animation-name: spin;
+    -webkit-animation-duration: 10000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 10000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 10000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 10000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+	
+}
+
+#sky_dark_3{
+	position: absolute;
+	/*background-image:url('sky_dark.png') ;*/
+	/*background-repeat:no-repeat;*/
+	/*background-position: center bottom;*/
+	-webkit-transform-origin:50% 50%;
+	width:98%;
+	
+	left:1%;
+	background-size: 100% auto  ;
+	z-index: 98;
+	-webkit-animation-name: spin;
+    -webkit-animation-duration: 10000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 10000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 10000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 10000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+   	
+
+	
+}
+
+#sat_path{
+position: absolute;
+width: 100%;
+height: 100%;
+
+z-index: 111;
+-webkit-transform-origin:50% 50%;
+-webkit-animation-name: spin;
+    -webkit-animation-duration: 100000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 100000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 100000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 100000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+#met_path{
+position: absolute;
+width: 100%;
+height: 100%;
+
+z-index: 111;
+-webkit-transform-origin:50% 50%;
+-webkit-animation-name: spin;
+    -webkit-animation-duration: 300000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 300000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 300000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 300000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+#sate{
+	position: absolute;
+	-webkit-transform-origin:50% 50%;
+	top:50%!important;
+	width:10%;
+	left:-2%;
+	background-size: 100% auto  ;
+	z-index: 111;
+	-webkit-animation-name: spin;
+    -webkit-animation-duration: 7000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 7000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 7000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 7000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#met{
+	position: absolute;
+	-webkit-transform-origin:50% 50%;
+	top:50%!important;
+	width:4%;
+	left:8%;
+	background-size: 100% auto  ;
+	z-index: 111;
+	-webkit-animation-name: spin;
+    -webkit-animation-duration: 140`00ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 14000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 14000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 14000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#ufo
+{
+	-webkit-transform-origin:50% 50%;
+	position: absolute;
+	width:10%;
+	bottom:40%;
+	left:100%;
+	z-index:120;
+}
+
+#ufolight
+{
+	-webkit-transform-origin:50% 50%;
+	position:absolute;
+	bottom:0%;
+	width:25%;
+	left:37.8%;
+	height:50%;
+	z-index:119;
+	opacity:0;
+}
+
+#stars{
+	
+	position: absolute;
+	/*background-image:url('sky_dark.png') ;*/
+	/*background-repeat:no-repeat;*/
+	/*background-position: center bottom;*/
+	-webkit-transform-origin:50% 50%;
+	
+	width:100%;
+	/*height:100%;*/
+	z-index:99;
+	left:00%;
+	background-size: 100% auto  ;
+	-webkit-animation-name: spin;
+    -webkit-animation-duration: 400000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 400000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 400000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 400000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+#main_cont
+{
+	position:absolute;
+	top:100%;
+	height:100%;
+	width:100%;
+	background-color:##FFDCB2;
+
+}
+
+.title1
+{
+	position:absolute;
+	right:5%;
+	bottom:-10%;
+	font-size:4em;
+	font-family: code_bold;
+}
+
+
+.title2{
+	position: absolute;
+	top:46%;
+	left:93%;
+	 -moz-transform: rotate(90deg);  /* FF3.5+ */
+     -o-transform: rotate(90deg);  /* Opera 10.5 */
+     -webkit-transform: rotate(90deg);  /* Saf3.1+, Chrome */
+     filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.5);  /* IE6,IE7 */
+     -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.5)"; /* IE8 */
+     font-size:1.5em;
+     color:#000;
+	 opacity:0.3;
+     font-family: code_bold;
+}
+#logo{
+	position: absolute;
+	left:40%;
+	top:5%;
+	width: 16%;
+	z-index: 100;
+}
+
+#ieee_logo{
+	position: absolute;
+	right:10px;
+	top:6%;
+	width: 9%;
+	z-index: 100;
+}
+#col_logo{
+	position: absolute;
+	left:20px;
+	top:3%;
+	width: 11%;
+	z-index: 100;
+}
+#model{
+position: absolute;
+	left:13%;
+	top:6%;
+	width: 11%;
+	z-index: 100;	
+font-family:code_bold;
+font-weight: bold;
+opacity:.6;
+
+}
+
+
+#usr{
+	position: absolute;
+	
+    right:10px;
+    top:120px;
+    z-index: 200;
+    width:19.6%;
+    height: 23px;
+}
+#usr1{
+	position: absolute;
+	
+    right:20px;
+    top:120px;
+    z-index: 200;
+    width:10.0%;
+    height: 23px;
+    color:white;
+    font-size: .7em;
+}
+.pd_hold
+{
+	width: 300px;
+}
+input[type="text"]
+{
+    background: transparent;
+    border: none;
+}
+
+input[type="password"]
+{
+    background: transparent;
+    border: none;
+}
+#pass{
+	position: absolute;
+	height: 23px;
+    right:10px;
+    top:160px;
+    z-index: 200;
+    width:19.6%;
+}
+#pass1{
+	position: absolute;
+	height: 23px;
+    right:20px;
+    top:160px;
+    z-index: 200;
+    width:10.0%;
+    color:white;
+    font-size: .7em;
+}
+#sub{
+	position: absolute;
+	width:19.6%!important;
+    right:10px;
+    top:205px;
+    z-index: 200;
+    border-radius: 100px;
+    height: 23px;
+}
+
+.nill_class{
+display: none;
+}
+
+/*.ink styles - the elements which will create the ripple effect. The size and position of these elements will be set by the JS code. Initially these elements will be scaled down to 0% and later animated to large fading circles on user click.*/
+.ink {
+	display: block; position: absolute;
+	background: hsl(180, 40%, 80%);
+	border-radius: 100%;
+	transform: scale(0);
+	-webkit-transform: scale(0);
+}
+/*animation effect*/
+.ink.animate {-webkit-animation: ripple 0.65s linear; animation: ripple 0.65s linear;}
+
+@-webkit-keyframes ripple {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+	100% {opacity: 0; -webkit-transform: scale(.5);}
+}
+@keyframes ripple {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+	100% {opacity: 0; transform: scale(.5);}
+}
+
+
+
+
+
+@-ms-keyframes spin { from { -ms-transform: rotate(0deg); } to { -ms-transform: rotate(360deg); }}
+@-moz-keyframes spin { from { -moz-transform: rotate(0deg); } to { -moz-transform: rotate(360deg); }}
+@-webkit-keyframes spin { from { -webkit-transform: rotate(0deg); } to { -webkit-transform: rotate(360deg); }}
+@keyframes spin { from { transform:rotate(0deg); } to { transform:rotate(360deg); }}
+
+@media 	only screen and (min-width:200px) and (max-width:800px)   /*cannot handle less than 800px*/
+{   #model{
+    top:3%;
+	font-size: .6em;
+}
+}
+@media 	only screen and (min-width:800px) and (max-width:1560px)   /*cannot handle less than 800px*/
+{   #model{
+	top:4%;
+	font-size: .8em;
+}
+	.title2
+	{
+		font-size:1.2em;
+	}
+}
+@media 	only screen and (min-width:1560px) and (max-width:2000px)
+{     #model{
+	font-size: 1.1em;
+} 
+	.title2
+	{
+		font-size:1.3em;
+	}
+}
+@media 	only screen and (min-width:2000px) and (max-width:2350px)
+{      #model{
+	font-size: 1.3em;
+} 
+	.title2
+	{
+		font-size:1.9em;
+		
+	}
+}
+@media 	only screen and (min-width:2350px)  /*cannot handle greater than 2680px*/
+{      #model{
+	font-size: 1.5em;
+}                         
+	.title2
+	{
+		font-size:1.98em;
+		
+	}
+}

@@ -1,0 +1,178 @@
+                                                                                                                                <!doctype html>
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>	Sign up</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+        <!-- needs images, font... therefore can not be part of ui.css -->
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="bower_components/weather-icons/css/weather-icons.min.css">
+        <!-- end needs images -->
+        <!--  -->
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/facebook.js"></script>
+        <script src="http://connect.facebook.net/en_US/all.js"></script>
+        <!--  -->
+
+            <link rel="stylesheet" href="styles/main.css">
+
+    </head>
+    <div class="page-signup">
+
+       <div style="margin-top:5%" class="container text-center">
+            <section class="logo">
+                <img src="../excel_logo.png"></a>
+            </section>
+        </div>
+
+
+    <div class="signup-body">
+        <div class="container-fluidic">
+            <div class="form-container">
+
+                <section class="row signin-social text-center">
+                    <a href="javascript:;" id="fblogin" onclick="fb_login();" class="btn btn-lg btn-facebook"><i class="fa fa-facebook"></i>&nbsp;&nbsp;Sign up using Facebook</a>
+                </section>
+
+                <span id="linet" class="line-thru">And</span>
+
+                <section>
+                    <form id="signUp" class="form-horizontal">
+                        <div class="row">
+                          <div class="form-group col-md-6">
+                              <div class="input-group input-group-lg">
+                                  <span class="input-group-addon">
+                                      <span class="glyphicon glyphicon-user"></span>
+                                  </span>
+                                  <input id="name" type="text"
+                                          class="form-control"
+                                          placeholder="User name"
+                                          name="name"
+                                          required
+                                          >
+                              </div>
+                          </div>
+
+                          <div class="form-group col-md-6">
+                              <div class="input-group input-group-lg">
+                                  <span class="input-group-addon">
+                                      <span class="glyphicon glyphicon-envelope"></span>
+                                  </span>
+                                  <input type="email"
+                                         id="email"
+                                         class="form-control"
+                                         placeholder="Email"
+                                         name="email"
+                                         required
+                                         >
+                              </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-md-6">
+                              <div class="input-group input-group-lg">
+                                  <span class="input-group-addon">
+                                      <span class="glyphicon glyphicon-lock"></span>
+                                  </span>
+                                  <input type="password"
+                                         id="password"
+                                         class="form-control"
+                                         placeholder="Password"
+                                         name="password"
+                                         required
+                                         >
+                              </div>
+                          </div>
+
+                          <div class="form-group col-md-6">
+                              <div class="input-group input-group-lg">
+                                  <span class="input-group-addon">
+                                      <span class="fa fa-university"></span>
+                                  </span>
+                                  <input type="text"
+                                         id="college"
+                                         class="form-control"
+                                         placeholder="College"
+                                         name="college"
+                                         required
+                                         >
+                              </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-md-4">
+                              <div class="input-group input-group-lg">
+                                  <span class="input-group-addon">
+                                      <span class="fa fa-phone"></span>
+                                  </span>
+                                  <input type="text"
+                                         id="phone"
+                                         class="form-control"
+                                         placeholder="Phone"
+                                         name="phone"
+                                         required
+                                         >
+                              </div>
+                          </div>
+
+                          <div class="form-group col-md-4">
+                              <div class="input-group input-group-lg">
+                                  <span class="input-group-addon">
+                                      <span class="fa fa-graduation-cap"></span>
+                                  </span>
+                                  <input type="text"
+                                         id="dept"
+                                         class="form-control"
+                                         placeholder="Department"
+                                         name="dept"
+                                         required
+                                         >
+                              </div>
+                          </div>
+
+                        <div id="divAccom" class="form-group col-md-4">
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon">
+                                    <span class="fa fa-suitcase"></span>
+                                </span>
+                                <input type="button"
+                                       id="accom"
+                                       class="form-control"
+                                       placeholder="Accomodation"
+                                       name = "accom"
+                                       value="No"
+                                       >
+                            </div>
+                        </div> 
+
+                        </div>                       
+                        
+                        <div style="width:31%"class="form-group">
+                            <a id="saveForm" class="btn btn-primary btn-lg btn-block">Sign up</a>
+                        </div>
+ 
+                    </form>
+                </section>
+
+                <section>
+                    <p class="text-center text-muted">Already have an account? <a href="SIGNIN.html" >Log in now to EXCEL</a></p>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+       
+    </body>
+</html>
+                            
+                            
+                            
+                            

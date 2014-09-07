@@ -1,0 +1,425 @@
+
+function dayNight()
+{
+var hr = (new Date()).getHours();
+
+if(hr>17&&hr<19)
+{   
+	$("#ban6").css("background-color",'#fbf3e0'); 
+    $("#model").css("color",'#000'); 
+	$("#col_logo").attr("src", 'evening/col_logo.png');
+	$("#ieee_logo").attr("src", 'evening/ieee.png');
+    $("#sky_dark_3").attr("src", 'evening/sky_dar_3.png');
+    $("#sky_dark_2").attr("src", 'evening/sky_dar_2.png');
+    $("#sky_dark").attr("src", 'evening/sky_dar.png');
+    $("#met").attr("src", 'evening/met.png');
+    $("body").css("background-color",'#fbf3e0'); 
+    $('#stars').addClass('nill_class');
+    $('#sate').addClass('nill_class');
+    // $('#met').addClass('nill_class');
+
+
+}
+else
+{
+
+
+}
+}
+
+
+function slideOnLoad()
+{   
+
+	$("#ban0").stop().animate({left:"-78%"},{easing:"easeOutCubic",duration: 800});
+	$("#ban1").stop().animate({left:"-75%"},{easing:"easeOutCubic",duration: 800});
+	$("#ban2").stop().animate({left:"-72%"},{easing:"easeOutCubic",duration: 800});
+	$("#ban3").stop().animate({left:"-69%"},{easing:"easeOutCubic",duration: 800});
+	$("#ban4").stop().animate({left:"-66%"},{easing:"easeOutCubic",duration: 800});
+	$("#ban5").stop().animate({left:"-63%"},{easing:"easeOutCubic",duration: 800});
+}
+
+var cardSet=0;
+function comCardDef()
+{
+	$('.com_card').each(function( index ) {
+		$(this).animate({left:"-100%",bottom:"-100%",opacity:"0"},(index+1)*200);   
+	});
+	cardSet=1;
+}
+
+function comCardAnim()
+{	if(cardSet==1)
+	{
+	$('.com_card').css({left:""});
+	$('.com_card').each(function( index ) {
+		$(this).delay((index+2)*200).animate({bottom:"",opacity:".7", },(index+2)*200); 
+		$(this).animate({opacity:"1"},200);
+	});  
+	cardSet=0;
+	}
+}
+
+var ufoSet=0;
+function ufopass()
+{
+		var position = $('#ufo').position();
+
+		var percentLeft = Math.ceil(position.left/$("#ban6").width() * 100);
+		if(ufoSet==0&&percentLeft>95)
+		{
+		$("#ufo").animate({left:"45.3%"},{easing:"easeOutExpo",duration:2200});
+		$("#ufolight").delay(2300).animate({opacity:"1"},{duration:1000});
+		$("#ufolight").delay(200).animate({opacity:"0.05"},{duration:800});
+		$("#ufolight").delay(10).animate({opacity:"1"},{duration:800});
+		$("#ufolight").delay(10).animate({opacity:"0.05"},{duration:800});
+		$("#ufolight").delay(10).animate({opacity:"1"},{duration:800});
+		$("#ufolight").delay(20).animate({opacity:"0"},{duration:1000});
+		$("#ufo").delay(6550).animate({left:"-20%"},{easing:"easeInOutExpo",duration:2200});
+		$("#ufo").animate({left:"100%"},0);
+		ufoSet=1;
+		}
+}
+
+function mecHghtAdj()
+{
+	var viewHt=$(window).height();
+	var skyHt=$("#sky_dark").height();
+	var sateHt=$("#sate").height();
+	var starsHt=$("#stars").height();
+	var sat_pathHt=$("#sat_path").height();
+	var met_pathHt=$("#met_path").height();
+	var sky2Ht=$("#sky_dark_2").height();
+	var sky3Ht=$("#sky_dark_3").height();
+
+	
+	var skyHtFix=viewHt-(skyHt/2);
+	var sateHtFix=viewHt-(sateHt/2);
+	var starsHtFix=viewHt-(starsHt/2);
+	var sat_pathHtFix=viewHt-(sat_pathHt/2);
+	var met_pathHtFix=viewHt-(met_pathHt/2);
+    var sky2HtFix=viewHt-(sky2Ht/2);
+    var sky3HtFix=viewHt-(sky3Ht/2);
+
+	$("#sky_dark").css({ top: skyHtFix });
+	$("#sate").css({ top: sateHtFix });
+	$("#stars").css({ top: starsHtFix});
+	$("#sat_path").css({ top: sat_pathHtFix});
+	$("#met_path").css({ top: met_pathHtFix});
+	$("#sky_dark_2").css({ top: sky2HtFix});
+	$("#sky_dark_3").css({ top: sky3HtFix});
+	$("#ufo").css({top:skyHtFix});
+	$("#ufolight").css({top:skyHtFix,height:skyHt});
+	
+	if($(window).width()<1040)
+	$(".title2").css({left:"91%"})
+	else if($(window).width()<1180)
+	$(".title2").css({left:"92%"})
+	else
+	$(".title2").css({left:"93%"})
+
+
+}
+
+
+var parent, ink, d, x, y;
+$(".ban").click(function(e){
+	parent = $(this);
+	//create .ink element if it doesn't exist
+	if(parent.find(".ink").length == 0)
+		parent.prepend("<span class='ink'></span>");
+		
+	ink = parent.find(".ink");
+	//incase of quick double clicks stop the previous animation
+	ink.removeClass("animate");
+	
+	//set size of .ink
+	if(!ink.height() && !ink.width())
+	{
+		//use parent's width or height whichever is larger for the diameter to make a circle which can cover the entire element.
+		d = Math.max(parent.outerWidth(), parent.outerHeight());
+		ink.css({height: d, width: d});
+	}
+	
+	//get click coordinates
+	//logic = click coordinates relative to page - parent's position relative to page - half of self height/width to make it controllable from the center;
+	x = e.pageX - parent.offset().left - ink.width()/2;
+	y = e.pageY - parent.offset().top - ink.height()/2;
+	
+	//set the position and add class .animate
+	ink.css({top: y+'px', left: x+'px'}).addClass("animate");
+})
+
+
+function drumplay()
+{
+		$("#uldrum").stop().delay(100).animate({top:"31%"},{duration:100});
+		$("#uldrum").stop().delay(300).animate({top:"30%"},{duration:200});
+		
+		$("#rjazz").stop().delay(800).animate({top:"30.5%"},{duration:100});
+		$("#rjazz").stop().delay(200).animate({top:"30%"},{duration:200,complete:function(){
+		
+					$("#uldrum").stop().delay(100).animate({top:"31%"},{duration:100});
+					$("#uldrum").stop().delay(300).animate({top:"30%"},{duration:200});
+					
+					$("#rjazz").stop().delay(800).animate({top:"30.5%"},{duration:100});
+					$("#rjazz").stop().delay(200).animate({top:"30%"},{duration:200});
+					
+					$("#cdrum").stop().delay(1300).animate({top:"31%",left:"11%"},{duration:100});
+					$("#cdrum").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+					
+					$("#urdrum").stop().delay(100).animate({top:"32%"},{duration:100});
+					$("#urdrum").stop().delay(500).animate({top:"30%"},{duration:300});
+					
+					$("#ljazz").stop().delay(100).animate({top:"30.5%",left:"8%"},{duration:100});
+					$("#ljazz").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+					
+					$("#ldrum").stop().delay(800).animate({top:"32%",left:"9.5%"},{duration:100});
+					$("#ldrum").stop().delay(800).animate({top:"30%",left:"10%"},{duration:200,complete:function(){
+					
+						$("#uldrum").stop().delay(100).animate({top:"31%"},{duration:100});
+						$("#uldrum").stop().delay(300).animate({top:"30%"},{duration:200});
+						
+						$("#rjazz").stop().delay(800).animate({top:"30.5%"},{duration:100});
+						$("#rjazz").stop().delay(200).animate({top:"30%"},{duration:200});
+						
+						$("#cdrum").stop().delay(1300).animate({top:"31%",left:"11%"},{duration:100});
+						$("#cdrum").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+						
+						$("#urdrum").stop().delay(100).animate({top:"32%"},{duration:100});
+						$("#urdrum").stop().delay(500).animate({top:"30%"},{duration:300});
+						
+						$("#ljazz").stop().delay(100).animate({top:"30.5%",left:"8%"},{duration:100});
+						$("#ljazz").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+						
+						$("#ldrum").stop().delay(800).animate({top:"32%",left:"9.5%"},{duration:100});
+						$("#ldrum").stop().delay(800).animate({top:"30%",left:"10%"},{duration:200});
+						
+					}});
+		}});
+		
+		$("#cdrum").stop().delay(1300).animate({top:"31%",left:"11%"},{duration:100});
+		$("#cdrum").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+		
+		$("#urdrum").stop().delay(100).animate({top:"32%"},{duration:100});
+		$("#urdrum").stop().delay(500).animate({top:"30%"},{duration:300});
+		
+		$("#ljazz").stop().delay(100).animate({top:"30.5%",left:"8%"},{duration:100});
+		$("#ljazz").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+		
+		$("#ldrum").stop().delay(800).animate({top:"32%",left:"9.5%"},{duration:100});
+		$("#ldrum").stop().delay(800).animate({top:"30%",left:"10%"},{duration:200,complete:function(){
+		
+			$("#uldrum").stop().delay(100).animate({top:"31%"},{duration:100});
+			$("#uldrum").stop().delay(300).animate({top:"30%"},{duration:200});
+			
+			$("#rjazz").stop().delay(800).animate({top:"30.5%"},{duration:100});
+			$("#rjazz").stop().delay(200).animate({top:"30%"},{duration:200});
+			
+			$("#cdrum").stop().delay(1300).animate({top:"31%",left:"11%"},{duration:100});
+			$("#cdrum").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+			
+			$("#urdrum").stop().delay(100).animate({top:"32%"},{duration:100});
+			$("#urdrum").stop().delay(500).animate({top:"30%"},{duration:300});
+			
+			$("#ljazz").stop().delay(100).animate({top:"30.5%",left:"8%"},{duration:100});
+			$("#ljazz").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+			
+			$("#ldrum").stop().delay(800).animate({top:"32%",left:"9.5%"},{duration:100});
+			$("#ldrum").stop().delay(800).animate({top:"30%",left:"10%"},{duration:200,complete:function(){
+			
+			$("#uldrum").stop().delay(100).animate({top:"31%"},{duration:100});
+		$("#uldrum").stop().delay(300).animate({top:"30%"},{duration:200});
+		
+		$("#rjazz").stop().delay(800).animate({top:"30.5%"},{duration:100});
+		$("#rjazz").stop().delay(200).animate({top:"30%"},{duration:200});
+		
+		$("#cdrum").stop().delay(1300).animate({top:"31%",left:"11%"},{duration:100});
+		$("#cdrum").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+		
+		$("#urdrum").stop().delay(100).animate({top:"32%"},{duration:100});
+		$("#urdrum").stop().delay(500).animate({top:"30%"},{duration:300});
+		
+		$("#ljazz").stop().delay(100).animate({top:"30.5%",left:"8%"},{duration:100});
+		$("#ljazz").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+		
+		$("#ldrum").stop().delay(800).animate({top:"32%",left:"9.5%"},{duration:100});
+		$("#ldrum").stop().delay(800).animate({top:"30%",left:"10%"},{duration:200,complete:function(){
+		
+				$("#uldrum").stop().delay(100).animate({top:"31%"},{duration:100});
+				$("#uldrum").stop().delay(300).animate({top:"30%"},{duration:200});
+				
+				$("#rjazz").stop().delay(800).animate({top:"30.5%"},{duration:100});
+				$("#rjazz").stop().delay(200).animate({top:"30%"},{duration:200});
+				
+				$("#cdrum").stop().delay(1300).animate({top:"31%",left:"11%"},{duration:100});
+				$("#cdrum").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+				
+				$("#urdrum").stop().delay(100).animate({top:"32%"},{duration:100});
+				$("#urdrum").stop().delay(500).animate({top:"30%"},{duration:300});
+				
+				$("#ljazz").stop().delay(100).animate({top:"30.5%",left:"8%"},{duration:100});
+				$("#ljazz").stop().delay(100).animate({top:"30%",left:"10%"},{duration:200});
+				
+				$("#ldrum").stop().delay(800).animate({top:"32%",left:"9.5%"},{duration:100});
+				$("#ldrum").stop().delay(800).animate({top:"30%",left:"10%"},{duration:200});
+				
+				}});
+			
+			}});
+			
+		}});
+}
+
+$(window).resize(function() {
+	mecHghtAdj();
+});
+
+var presBann=10;
+$(document).ready(function() {
+
+    dayNight();
+	mecHghtAdj();
+	comCardDef();
+	slideOnLoad();
+	$("#ban0").click( function()
+	{  
+		
+		if(presBann!=0)
+		{
+		presBann=0;
+		comCardDef();
+		$("#ban0").stop().animate({left:"0%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban1").stop().animate({left:"3%"},{easing:"easeOutCubic",duration: 800});
+	    	$("#ban2").stop().animate({left:"6%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban3").stop().animate({left:"9%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban4").stop().animate({left:"12%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban5").stop().animate({left:"15%"},{easing:"easeOutCubic",duration: 800,complete: function(){ufoSet=0;}});
+		$(".title2").stop().animate({top:"46%"},{duration:500});
+		$(".title1").stop().animate({bottom:"-10%"},{duration:500});
+		$("#ban0>.title2").stop().animate({top:"-10%"},{duration:500,complete: function(){
+			$("#ban0>.title1").stop().animate({bottom:"2%"},{duration:500});
+		}});
+		
+		}
+		
+	});
+	$("#ban1").click( function()
+	{   
+	
+		if(presBann!=1)
+		{
+		presBann=1;
+		comCardDef();
+		$("#ban0").stop().animate({left:"-78%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban1").stop().animate({left:"3%"},{easing:"easeOutCubic",duration: 800});
+	   	$("#ban2").stop().animate({left:"6%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban3").stop().animate({left:"9%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban4").stop().animate({left:"12%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban5").stop().animate({left:"15%"},{easing:"easeOutCubic",duration: 800,complete: function(){ufoSet=0;}});
+		$(".title2").stop().animate({top:"46%"},{duration:500});
+		$(".title1").stop().animate({bottom:"-10%"},{duration:500});
+		$("#ban1>.title2").stop().animate({top:"-10%"},{duration:500,complete: function(){
+			$("#ban1>.title1").stop().animate({bottom:"2%"},{duration:500});
+		}});
+		}
+		
+	});
+	$("#ban2").click( function()
+	{   
+		
+		if(presBann!=2)
+		{
+		presBann=2;
+		comCardDef();
+		$("#ban0").stop().animate({left:"-78%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban1").stop().animate({left:"-75%"},{easing:"easeOutCubic",duration: 800});
+	    	$("#ban2").stop().animate({left:"6%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban3").stop().animate({left:"9%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban4").stop().animate({left:"12%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban5").stop().animate({left:"15%"},{easing:"easeOutCubic",duration: 800,complete: function(){ufoSet=0;}});
+		$(".title2").stop().animate({top:"46%"},{duration:500});
+		$(".title1").stop().animate({bottom:"-10%"},{duration:500});
+		$("#ban2>.title2").stop().animate({top:"-10%"},{duration:500,complete: function(){
+			$("#ban2>.title1").stop().animate({bottom:"2%"},{duration:500});
+		}});
+		}
+	
+	});
+	$("#ban3").click( function()
+	{   
+		
+		if(presBann!=3)
+		{
+		presBann=3;
+		comCardAnim();
+		$("#ban0").stop().animate({left:"-78%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban1").stop().animate({left:"-75%"},{easing:"easeOutCubic",duration: 800});
+	    	$("#ban2").stop().animate({left:"-72%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban3").stop().animate({left:"9%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban4").stop().animate({left:"12%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban5").stop().animate({left:"15%"},{easing:"easeOutCubic",duration: 800,complete: function(){ufoSet=0;}});
+		$(".title2").stop().animate({top:"46%"},{duration:500});
+		$(".title1").stop().animate({bottom:"-10%"},{duration:500});
+		$("#ban3>.title2").stop().animate({top:"-10%"},{duration:500,complete: function(){
+			$("#ban3>.title1").stop().animate({bottom:"2%"},{duration:500});
+		}});
+		}
+	
+	});
+	$("#ban4").click( function()
+	{   
+		if(presBann!=4)
+		{
+		presBann=4;
+		comCardDef();
+		$("#ban0").stop().animate({left:"-78%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban1").stop().animate({left:"-75%"},{easing:"easeOutCubic",duration: 800});
+	    	$("#ban2").stop().animate({left:"-72%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban3").stop().animate({left:"-69%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban4").stop().animate({left:"12%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban5").stop().animate({left:"15%"},{easing:"easeOutCubic",duration: 800,complete: function(){ufoSet=0;}});
+		$(".title2").stop().animate({top:"46%"},{duration:500});
+		$(".title1").stop().animate({bottom:"-10%"},{duration:500});
+		$("#ban4>.title2").stop().animate({top:"-10%"},{duration:500,complete: function(){
+			$("#ban4>.title1").stop().animate({bottom:"2%"},{duration:500});
+		}});
+		}
+		
+	});
+	$("#ban5").click( function()
+	{   
+		if(presBann!=5)
+		{
+		presBann=5;
+		comCardDef();
+		$("#ban0").stop().animate({left:"-78%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban1").stop().animate({left:"-75%"},{easing:"easeOutCubic",duration: 800});
+	    	$("#ban2").stop().animate({left:"-72%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban3").stop().animate({left:"-69%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban4").stop().animate({left:"-66%"},{easing:"easeOutCubic",duration: 800});
+		$("#ban5").stop().animate({left:"15%"},{easing:"easeOutCubic",duration: 800,complete: function(){ drumplay(); ufoSet=0;}});
+		$(".title2").stop().animate({top:"46%"},{duration:500});
+		$(".title1").stop().animate({bottom:"-10%"},{duration:500});
+		$("#ban5>.title2").stop().animate({top:"-10%"},{duration:500,complete: function(){
+			$("#ban5>.title1").stop().animate({bottom:"2%"},{duration:500});
+		}});
+		}
+		
+	});
+	$("#ban6").click( function()
+	{   
+		if(presBann!=6)
+		{
+		presBann=6;
+		comCardDef();
+		slideOnLoad();
+		ufopass();
+		$(".title2").stop().animate({top:"46%"},{duration:500});
+		$(".title1").stop().animate({bottom:"-10%"},{duration:500});
+		}
+		
+	});
+	
+	
+});

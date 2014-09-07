@@ -1,0 +1,162 @@
+/* Content Flip Style */
+.bb-bookblock {
+	width: 400px;
+	height: 300px;
+	position: relative;
+	background-image:url(../img/civil.jpg);
+	background-size:100% 100%;
+	z-index: 100;
+}
+
+.bb-page {
+	width: 50%;
+	height: 100%;
+	left: 50%;
+	position: absolute;
+background-image:url(../img/civil.jpg)
+background-size:100% 100%;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	-webkit-transform-origin: left center;
+	-moz-transform-origin: left center;
+	-o-transform-origin: left center;
+	-ms-transform-origin: left center;
+	transform-origin: left center;
+}
+
+.bb-page > div,
+.bb-outer,
+.bb-content {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.bb-content {
+	background-image:url(../img/civil.jpg);
+	background-size:100% 100%;
+	
+}
+
+.bb-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.bb-overlay, .bb-outer {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.bb-page > div {
+	width: 100%;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.bb-back {
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-o-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+
+.bb-outer {
+	width: 100%;
+	overflow: hidden;
+	z-index: 999;
+}
+
+.bb-overlay, 
+.bb-flipoverlay {
+	background-image:url(../img/civil.jpg);
+	background-size:100% 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 1000;
+}
+
+.bb-flipoverlay {
+	background-image:url(../img/civil.jpg);
+	background-size:100% 100%;
+}
+
+.bb-bookblock > div.bb-page:first-child,
+.bb-bookblock > div.bb-page:first-child .bb-back {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.js .bb-item {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	
+}
+td{
+text-align:center;
+}
+
+#table2	{display:none;
+}
+@media 	only screen and (min-width:200px) and (max-width:800px)   /*cannot handle less than 800px*/
+{ #table1{
+display:none;
+
+} 
+ #table2{
+display:block;
+margin-left:auto;
+margin-right:auto;
+}  
+}
+@media 	only screen and (min-width:800px) and (max-width:960px)   /*cannot handle less than 800px*/
+{ 
+#table1{
+visibility:none;
+
+} 
+ #table2{
+display:block;
+margin-left:auto;
+margin-right:auto;
+} 
+}
+@media 	only screen and (min-width:1560px) and (max-width:2000px)
+{  
+}
+@media 	only screen and (min-width:2000px) and (max-width:2350px)
+{
+}
+@media 	only screen and (min-width:2350px)  /*cannot handle greater than 2680px*/
+{     
+
+}
